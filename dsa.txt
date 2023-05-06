@@ -1,0 +1,19 @@
+public class Main {
+    public static void main(String[] args) {
+        int n = 3; // Number of disks
+        String small = "A";
+        String medium = "C";
+        String large = "B";
+        solveTowerOfHanoi(n, small, medium, large);
+    }
+
+    public static void solveTowerOfHanoi(int n, String small, String medium, String large) {
+        if (n == 1) {
+            System.out.println("Move disk 1 from " + small + " to " + medium);
+        } else {
+            solveTowerOfHanoi(n - 1, small, large, medium);
+            System.out.println("Move disk " + n + " from " + small + " to " + medium);
+            solveTowerOfHanoi(n - 1, large, large, small);
+        }
+    }
+}
